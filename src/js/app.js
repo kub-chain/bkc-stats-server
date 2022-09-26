@@ -5,7 +5,7 @@
 var netStatsApp = angular.module('netStatsApp', ['netStatsApp.filters', 'netStatsApp.directives', 'ngStorage']);
 
 netStatsApp.run(function($rootScope) {
-	$rootScope.networkName = networkName || 'Ethereum';
+	$rootScope.networkName = networkName || 'BitkubChain';
 	$rootScope.faviconPath = faviconPath || '/favicon.ico';
 });
 

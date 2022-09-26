@@ -1,2 +1,2 @@
-var networkName = 'Ethereum';
+var networkName = 'BKC';
 var faviconPath = '/favicon.ico';

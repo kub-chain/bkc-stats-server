@@ -1,0 +1,45 @@
+name: Docker Image CI
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - run: printenv
+    - name: Build and Push Mainnet
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        build-args: |
+          NETWORK_NAME=BitkubChain Mainnet
+        tags: |
+          bitkubchain/bkcstats-server:latest
+          bitkubchain/bkcstats-server:mainnet
+          bitkubchain/bkcstats-server:${{ env.GITHUB_REF_NAME }}-mainnet
+    - name: Build and Push Testnet
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        build-args: |
+          NETWORK_NAME=BitkubChain Testnet
+        tags: |
+          bitkubchain/bkcstats-server:testnet
+          bitkubchain/bkcstats-server:${{ env.GITHUB_REF_NAME }}-testnet
+        
