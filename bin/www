@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-var debug = require('debug')('ethstats-server');
+var debug = require('debug')('bkcstats-server');
 var app = require('../app');
