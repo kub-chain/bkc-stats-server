@@ -11,7 +11,7 @@ RUN grunt $GRUNT_TASK
 FROM node:lts-alpine
 RUN apk add dumb-init
 WORKDIR /bkcstats-server
-COPY --chown=node:node --from=builder /bkcstats-server .
+COPY --from=builder /bkcstats-server .
 USER node
 EXPOSE  3000
 CMD ["dumb-init", "node", "./bin/www"]
