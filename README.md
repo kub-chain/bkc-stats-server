@@ -6,6 +6,12 @@ This is a visual interface for tracking mainnet and testnet network status. It u
 
 ![Screenshot](src/images/screenshot.png "Screenshot")
 
+
+#### Usage
+```
+docker run -e WS_SECRET=asdf -p 3000:3000 bitkubchainorg/bkc-stats-server:mainnet
+```
+
 #### Prerequisite
 * node
 * npm
