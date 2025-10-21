@@ -23,8 +23,8 @@ Make sure you have node.js and npm installed.
 Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/bitkub-chain/bkcstats-server
-cd bkcstats-server
+git clone https://github.com/kub-chain/bkc-stats-server
+cd bkc-stats-server
 npm install
 sudo npm install -g grunt-cli
 ```
